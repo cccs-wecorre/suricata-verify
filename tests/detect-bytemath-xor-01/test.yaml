@@ -1,0 +1,22 @@
+pcap: ../detect-bytemath-01/input.pcap
+
+requires:
+   files:
+       - src/detect-bytemath.c
+
+checks:
+  - filter:
+      count: 1
+      match:
+        event_type: alert
+        alert.signature_id: 1
+  - filter:
+      count: 1
+      match:
+        event_type: alert
+        alert.signature_id: 2
+  - filter:
+      count: 1
+      match:
+        event_type: alert
+        alert.signature_id: 3

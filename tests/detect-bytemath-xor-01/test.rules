@@ -1,0 +1,9 @@
+alert tcp any any -> any any (ipv4.hdr; byte_math: bytes 1, offset 0, oper ^, rvalue 133, result var;byte_test: 1, =, var, 11, relative;msg:\
+"Byte extract and byte math with byte test verification\
+";sid:1;)
+alert tcp any any -> any any (ipv4.hdr; byte_math: bytes 1, offset 13, oper ^, rvalue 0, result var; byte_test: 1, =, var, 4;msg:\
+"Byte extract and byte math with byte test verification\
+";sid:2;)
+alert tcp any any -> any any (ipv4.hdr; byte_math: bytes 2, offset 0, oper ^, rvalue 1316, result var; byte_test: 2, =, var, 6, relative;msg:\
+"Byte extract and byte math with byte test verification\
+";sid:3;)
